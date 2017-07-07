@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Where SDU</string>
-    <string name="user">ผู้ใช้งาน :</string>
-    <string name="pass">รหัสผ่าน :</string>
-    <string name="name">ชื่อ :</string>
+    <string name="user">UserName :</string>
+    <string name="pass">PassWord :</string>
+    <string name="name">Name :</string>
     <string name="NewRegister">New Register</string>
 </resources>
