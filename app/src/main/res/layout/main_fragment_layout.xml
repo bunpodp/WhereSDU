@@ -46,6 +46,7 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:id="@+id/edtUser"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimary"
                 android:inputType="text"
@@ -70,12 +71,13 @@
                 android:src="@mipmap/ic_password" />
 
             <EditText
+                android:id="@+id/edtPassword"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/pass"
-                android:inputType="text" />
+                android:inputType="textPassword" />
 
 
         </LinearLayout>
@@ -95,6 +97,7 @@
 
     <!--For Bottom-->
     <Button
+        android:id="@+id/btnLogin"
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/textColorPrimary"
         android:text="Login"
