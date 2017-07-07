@@ -3,6 +3,7 @@ package bunpod.sdu.wheresdu.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import bunpod.sdu.wheresdu.MyAlert;
+import bunpod.sdu.wheresdu.MyConstant;
+import bunpod.sdu.wheresdu.PostNewUser;
 import bunpod.sdu.wheresdu.R;
 
 /**
@@ -93,7 +96,35 @@ public class RegisterFragment extends Fragment {
 
     private void uploadValueToServer() {
 
-    }
+        String tag = "7JulyV1";
+        MyConstant myConstant = new MyConstant();
+        String urlPHP = myConstant.getUrlAddUser();
+
+        try {
+
+            PostNewUser postNewUser = new PostNewUser(getActivity());
+            postNewUser.execute(nameString, userString, passwordString, urlPHP);
+            String result = postNewUser.get();
+            Log.d(tag, "result ==> " + result);
+
+            if (Boolean.parseBoolean(result)) {
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentcontent, MainFragment.mainInstance())
+                        .commit();
+
+            } else {
+
+                MyAlert myAlert = new MyAlert(getActivity());
+                myAlert.myDialog("Error", "Cannot Upload Please Try Again");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    } //method การนำข้อมูลเชื่อมต่อเซิร์ฟเวอร์
 
     private void การทำBackController() {
         ImageView imageView = (ImageView) getView().findViewById(R.id.imvBack);
@@ -106,7 +137,7 @@ public class RegisterFragment extends Fragment {
                         .commit();
             }
         });
-    }
+    }//method การทำปุ่ม Back Controller
 
 
 }// Main Class
