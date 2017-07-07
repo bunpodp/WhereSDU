@@ -17,6 +17,16 @@ import bunpod.sdu.wheresdu.R;
 
 public class MainFragment extends Fragment{
 
+    public static MainFragment mainInstance() {
+        MainFragment mainFragment = new MainFragment();
+        Bundle bundle = new Bundle();
+        mainFragment.setArguments(bundle);
+
+        return mainFragment;
+    }
+
+
+
     // onCreateView
     @Nullable
     @Override
